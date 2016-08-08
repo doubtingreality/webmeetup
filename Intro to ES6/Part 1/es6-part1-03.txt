@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Murtada',
+    age: 28
+  }
+
+  const wes = Object.freeze(person);
+</script>
+</body>
+</html>
