@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions → → </title>
+</head>
+<body>
+<script>
+  const names = ['Mushroom', 'Pepperoni', 'Quattro Formaggi'];
+
+  const fullNames = names.map(function(name) {
+    return `${name} pizza`;
+  });
+
+  const fullNames2 = names.map((name) => {
+    return `${name} pizza`;
+  });
+
+  const fullNames3 = names.map(name => {
+    return `${name} pizza`;
+  });
+
+  const fullNames4 = names.map(name => `${name} pizza`);
+
+  const fullNames5 = names.map(() => `Delicious pizza`);
+
+  const sayMyName = (name) => alert(`Hello ${name}!`);
+
+  sayMyName('Murtada');
+
+  const logError = (msg) => console.error(msg);
+
+  logError('testing the logger');
+
+
+</script>
+</body>
+</html>
