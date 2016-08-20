@@ -38,6 +38,7 @@
       transform:translateX(-200%);
       transition: all 0.5s;
       top:0;
+      opacity: 0;
     }
 
     .box p {
@@ -46,10 +47,12 @@
       transform:translateX(200%);
       transition: all 0.5s;
       bottom:0;
+      opacity: 0;
     }
 
     .box.open > * {
       transform:translateX(0%);
+      opacity: 1;
     }
   </style>
 
