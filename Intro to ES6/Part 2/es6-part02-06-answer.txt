@@ -30,6 +30,12 @@
 </ul>
 
 <script>
+	// Helper method for Number class, pads any number with zeroes
+	Number.prototype.pad = function() {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
+  }
 
   // Select all the list items on the page and convert to array
   const items = Array.from(document.querySelectorAll('[data-time]'));
@@ -48,7 +54,16 @@
     .reduce((runningTotal, seconds) => runningTotal + seconds);
 
   console.log(filtered);
-  // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+  // This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+
+  let actual_time = new Date(null);
+  actual_time.setSeconds(filtered_items);
+  console.log(
+  	actual_time.getUTCHours().pad() // Hours
+  	+":"+actual_time.getUTCMinutes().pad() // Minutes
+  	+":"+actual_time.getUTCSeconds().pad() // Seconds
+  );
+
 </script>
 </body>
 </html>
