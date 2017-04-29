@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+		<ul class="overview">
+
+		</ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+// Ajax stuff
+const request = new XMLHttpRequest();
+request.open('GET', endpoint, true);
+
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+    // Success!
+    data = JSON.parse(request.responseText);
+
+		data.forEach(function (current, index) {
+			current.index = index;
+		});
+
+		initSearch(data);
+  }
+};
+
+request.send();
+
+// Event stuff
+function initSearch(data) {
+	const searchInput = document.querySelector('.search');
+	const suggestionsList = document.querySelector('.suggestions');
+	const overview = document.querySelector('.overview');
+
+	suggestionsList.addEventListener('click', function(event) {
+		if (event.target.dataset.index) {
+			const originalData = data[event.target.dataset.index];
+
+			searchInput.value = `${originalData.city}, ${originalData.state}`;
+			suggestionsList.innerHTML = '';
+
+			overview.classList.add('is-visible');
+
+			overview.innerHTML = '';
+			for (key in originalData) {
+				overview.innerHTML += `<li>${key}: ${originalData[key]}</li>`;
+			}
+		}
+	});
+
+	// Run this after any input
+	function queryData(event) {
+		overview.classList.remove('is-visible');
+		const valueLowerCase = this.value.toLowerCase();
+
+		suggestionsList.innerHTML = '';
+
+		// Filter the list by inputted value
+		let returnData = data.filter(current => {
+			return (
+				current.city.toLowerCase().includes(valueLowerCase)
+				|| current.state.toLowerCase().includes(valueLowerCase)
+			);
+		});
+
+		// Limit filtered data to 10 results
+		returnData = returnData.slice(0, 10);
+
+		// Populate the list with the found cities
+		returnData.forEach(current => {
+			const newListItem = document.createElement('li');
+			const regex = new RegExp(valueLowerCase, 'gi');
+			const cityName = current.city.replace(regex, `<span class="hl">${this.value}</span>`);
+			const stateName = current.state.replace(regex, `<span class="hl">${this.value}</span>`);
+			const population = current.population.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+			newListItem.innerHTML = `
+			<span class="name">${cityName}, ${stateName}</span>
+			<span class="population">${population}</span>
+			`;
+			newListItem.dataset.index = current.index;
+			suggestionsList.appendChild(newListItem);
+		});
+	}
+
+	// Listen for any kind of input on the element
+	searchInput.addEventListener('input', queryData);
+}
+
+</script>
+  </body>
+</html>
