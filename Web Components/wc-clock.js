@@ -78,8 +78,14 @@
 		} else if (name === 'showmilliseconds') {
 			if (newValue === null) {
 				this.showMilliseconds = false;
+				this.updateTimer();
+				this.stopTimer();
+				this.startTimer(1000);
 			} else {
 				this.showMilliseconds = true;
+				this.updateTimer();
+				this.stopTimer();
+				this.startTimer(100);
 			}
 		}
 	};
