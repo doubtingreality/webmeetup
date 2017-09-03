@@ -26,15 +26,19 @@
 
 		this.updateTimer();
 
-		if (this.showMilliseconds) {
-			this.startTimer(100);
-		} else {
-			this.startTimer(1000);
-		}
+		this.startTimer();
 	};
 
 	// Define custom methods for timer
 	componentProto.startTimer = function(interval) {
+		if (typeof interval == 'undefined') {
+			if (this.showMilliseconds) {
+				interval = 17;
+			} else {
+				interval = 1000;
+			}
+		}
+
 		this.timerInterval = setInterval(this.updateTimer.bind(this), interval);
 	};
 
@@ -44,12 +48,13 @@
 
 	componentProto.updateTimer = function() {
 		this.time = new Date();
-		this.timerDiv.textContent = this.time.getHours() + ':'
-		+ this.time.getMinutes() + ':'
-		+ this.time.getSeconds();
+		this.timerDiv.textContent = 
+		this.leftPad('0', 2, this.time.getHours()) + ':'
+		+ this.leftPad('0', 2, this.time.getMinutes()) + ':'
+		+ this.leftPad('0', 2, this.time.getSeconds());
 
 		if (this.showMilliseconds) {
-			this.timerDiv.textContent += ':' + this.time.getMilliseconds();
+			this.timerDiv.textContent += ':' + this.leftPad('0', 3, this.time.getMilliseconds());
 		}
 	};
 
@@ -80,14 +85,36 @@
 				this.showMilliseconds = false;
 				this.updateTimer();
 				this.stopTimer();
-				this.startTimer(1000);
+				this.startTimer();
 			} else {
 				this.showMilliseconds = true;
 				this.updateTimer();
 				this.stopTimer();
-				this.startTimer(100);
+				this.startTimer();
 			}
 		}
+	};
+
+	// Extra utility method for leftpadding numbers with zeroes
+	componentProto.leftPad = function(character, length, string) {
+		string = string.toString();
+
+		if (string.length < length) {
+			var safety = 50;
+
+			while (string.length < length) {
+				string = character + string;
+
+				safety--;
+
+				if (safety == 0) {
+					console.log('break');
+					break;
+				}
+			}
+		}
+
+		return string;
 	};
 
 	// Register the element to the window
