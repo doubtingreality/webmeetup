@@ -1,0 +1,58 @@
+.modal {
+	@extend %depth-9;
+	visibility: hidden; // Visibility is need to prevent user events when hidden
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition-property: opacity, visibility;
+	transition-duration: 300ms;
+	pointer-events: none; // Disable all pointer events, just in case < IE11
+	// https://caniuse.com/#search=pointer-events
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+.modal__container {
+	@extend .container;
+	@extend %depth-2;
+	position: relative;
+}
+
+.modal__box {
+	padding: 2rem;
+	color: $cl-black;
+	background-color: $cl-white;
+	transform: scale(0);
+	transition: transform 500ms;
+
+	.is-visible & {
+		transform: scale(1);
+	}
+
+	.section--primary & {
+
+		h1 {
+			color: $cl-primary;
+		}
+	}
+}
+
+.overlay {
+	@extend %depth-1;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba($cl-black, .7);
+}

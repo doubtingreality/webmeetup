@@ -1,0 +1,273 @@
+<!doctype html>
+<!--[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7] <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8] <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Axis</title>
+	<meta name="description" content="Insert a site description here!">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="styles/application.css">
+</head>
+<body>
+
+	<header class="header header--primary slide-down">
+		<div class="container">
+			<a class="logo" href="#">CSS Animations</a>
+
+			<nav class="navigation">
+				<ul>
+					<li>
+						<a href="#transitions">Transitions</a>
+					</li>
+					<li>
+						<a href="#animations">Animations</a>
+					</li>
+					<li>
+						<a href="#timing">Timing</a>
+					</li>
+					<li>
+						<a href="#bugs">Bugs</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+
+		<section class="section section--primary" data-section="#transitions">
+
+			<div class="container">
+
+				<h1>Fade transitions</h1>
+				<p>These blocks still occupy their space, even when they are invisible.</p>
+
+				<div class="group">
+					<div class="md4">
+						<div class="block block--primary fade-opacity"></div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--secondary fade-visibility"></div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--tertiary fade-opacity-visibility"></div>
+					</div>
+				</div>
+
+				<div class="group text-align-center">
+					<div class="md4">
+						This block fades using opacity
+					</div>
+					<div class="md4">
+						This block can't be hovered due to visibility, no animation
+					</div>
+					<div class="md4">
+						This block can't be hovered, but will use a transition
+					</div>
+				</div>
+
+				<div class="group">
+					<div class="md6">
+						<a class="button button--secondary js_modal" href="#">Open modal</a>
+					</div>
+					<div class="md6">
+						<a class="button button--primary js_toggle" href="#">Toggle blocks</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal">
+				<div class="modal__container">
+					<div class="modal__box">
+						<h1>Lorem ipsum dolor sit amet</h1>
+						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+				</div>
+				<div class="overlay js_modal"></div>
+			</div>
+
+		</section>
+
+		<section class="section section--secondary" data-section="#animations">
+
+			<div class="container">
+
+				<h1>Keyframe animations</h1>
+				<p>These blocks use animations that also work without user input (hover, click, etc.) and are nice to use for complex animations.</p>
+
+				<div class="group">
+					<div class="md4">
+						<div class="block block--primary shake"></div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--tertiary rotate-scale"></div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--quaternary rotate-scale-better"></div>
+					</div>
+				</div>
+
+				<div class="group text-align-center">
+					<div class="md4">
+						This block shakes
+					</div>
+					<div class="md4">
+						This block rotates and scales
+					</div>
+					<div class="md4">
+						This block rotates and scales forwards and backwards
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="section section--tertiary" data-section="#timing">
+
+			<div class="container">
+
+				<h1>Transition timing / cubic bezier</h1>
+				<p><a href="http://easings.net/">http://easings.net/</a></p>
+				<p><strong>More default timings:</strong> <a href="https://developer.mozilla.org/nl/docs/Web/CSS/transition-timing-function">https://developer.mozilla.org/nl/docs/Web/CSS/transition-timing-function</a></p>
+
+				<div class="group">
+					<div class="md4">
+						<div class="block block--secondary block--small slide-right"></div>
+					</div>
+				</div>
+				<div class="group">
+					<div class="md12">
+						ease (default)
+					</div>
+				</div>
+				<div class="group">
+					<div class="md4">
+						<div class="block block--secondary block--small slide-right-1"></div>
+					</div>
+				</div>
+				<div class="group">
+					<div class="md12">
+						ease-in-out
+					</div>
+				</div>
+				<div class="group">
+					<div class="md4">
+						<div class="block block--secondary block--small slide-right-2"></div>
+					</div>
+				</div>
+				<div class="group">
+					<div class="md12">
+						cubic-bezier(0.6, -0.28, 0.735, 0.045)
+					</div>
+				</div>
+				<div class="group">
+					<div class="md4">
+						<div class="block block--secondary block--small slide-right-3"></div>
+					</div>
+				</div>
+				<div class="group">
+					<div class="md12">
+						cubic-bezier(0.68, -0.55, 0.265, 1.55)
+					</div>
+				</div>
+				<div class="group">
+					<div class="md12">
+						<a class="button button--tertiary js_toggle" href="#">Toggle blocks</a>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="section section--primary" data-section="#bugs">
+
+			<div class="container">
+
+				<h1>Graphical bugs/glitches</h1>
+				<p></p>
+
+				<div class="group">
+					<div class="md4">
+						<div class="block block--blend">
+							<div class="block__inner"></div>
+						</div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--blend">
+							<div class="block__inner block--transform"></div>
+						</div>
+					</div>
+
+					<div class="md4">
+						<div class="block block--blend">
+							<div class="block__inner block--will-change"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="group text-align-center">
+					<div class="md4">
+						Buggy
+					</div>
+					<div class="md4">
+						Transform
+					</div>
+					<div class="md4">
+						Will-change (no IE support)
+					</div>
+				</div>
+
+				<div class="group">
+					<div class="md12">
+						<a class="button button--secondary js_toggle" href="#">Toggle blocks</a>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="section section--secondary">
+
+			<div class="container">
+
+				<h1>Great articles/websites:</h1>
+				<p><a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/">https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/</a></p>
+				<p><a href="http://easings.net/">http://easings.net/</a></p>
+				<p><a href="https://developer.mozilla.org/nl/docs/Web/CSS/transition">https://developer.mozilla.org/nl/docs/Web/CSS/transition</a></p>
+				<p><a href="https://developer.mozilla.org/nl/docs/Web/CSS/animation">https://developer.mozilla.org/nl/docs/Web/CSS/animation</a></p>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<script>
+
+		toggleClass('.js_toggle', 'click', 'body', 'animate-all');
+		toggleClass('.js_modal', 'click', '.modal', 'is-visible');
+
+		function toggleClass(element, _event, target, _class) {
+			document.querySelectorAll(element).forEach(function(elem) {
+				elem.addEventListener(_event, () => {
+					event.preventDefault();
+					document.querySelector(target).classList.toggle(_class);
+				});
+			});
+		}
+
+	</script>
+
+</body>
+</html>

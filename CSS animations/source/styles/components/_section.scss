@@ -1,0 +1,30 @@
+.section--primary {
+	color: $cl-white;
+	background: $cl-quaternary;
+
+	h1 {
+		color: $cl-white;
+	}
+}
+
+.section--secondary {
+	color: $cl-white;
+	background-color: $cl-secondary;
+
+	h1 {
+		color: $cl-white;
+	}
+}
+
+.section--tertiary {
+	color: $cl-white;
+	background-color: $cl-primary;
+
+	a {
+		color: $cl-white;
+	}
+
+	h1 {
+		color: $cl-white;
+	}
+}

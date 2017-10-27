@@ -1,0 +1,27 @@
+//////////////////
+//
+//	File: _utilities.scss
+//	Description: Various small utilities classes
+//
+//////////////////
+
+
+////////////////////////
+//  Cursors
+////////////////////////
+
+%disabled {
+	opacity: .5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+
+////////////////////////
+//  Horizontal rule
+////////////////////////
+
+hr {
+	border: 0;
+	border-bottom: 1px solid fade-out($cl-black, .9);
+}

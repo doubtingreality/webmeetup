@@ -1,0 +1,139 @@
+.fade-opacity {
+	opacity: 0;
+	transition: opacity 300ms;
+
+	&:hover,
+	.animate-all & {
+		opacity: 1;
+	}
+}
+
+.fade-visibility {
+	visibility: hidden;
+	transition: visibility 300ms;
+
+	&:hover,
+	.animate-all & {
+		visibility: visible;
+	}
+}
+
+.fade-opacity-visibility {
+	visibility: hidden;
+	opacity: 0;
+	transition-property: visibility, opacity;
+	transition-duration: 300ms;
+
+	&:hover,
+	.animate-all & {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes shake {
+
+	15% {
+		transform: translateX(3rem);
+
+	} 30% {
+		transform: translateX(-1.3rem);
+
+	} 45% {
+		transform: translateX(.8rem);
+
+	} 60% {
+		transform: translateX(-.5rem);
+
+	} 75% {
+		transform: translateX(.3rem);
+
+	} 90% {
+		transform: translateX(0);
+
+	} 100% {
+		transform: translateX(0);
+
+	}
+}
+
+.shake {
+	animation: shake 1000ms infinite;
+}
+
+
+
+
+
+@keyframes rotate-scale {
+	from {
+		transform: rotate(0deg) scale(0);
+
+	} to {
+		transform: rotate(360deg) scale(1);
+	}
+}
+
+.rotate-scale {
+	animation: rotate-scale 2000ms infinite;
+}
+
+.rotate-scale-better {
+	animation: rotate-scale 2000ms infinite;
+	animation-direction: alternate; // Default is 'normal'
+}
+
+
+
+
+@keyframes slide-right {
+	from {
+		transform: translate3d(0, 0, 0);
+
+	} to {
+		transform: translate3d(700%, 0, 0);
+	}
+}
+
+.slide-right {
+
+	.animate-all & {
+		animation: slide-right 6000ms forwards;
+	}
+}
+
+.slide-right-1 {
+
+	.animate-all & {
+		animation: slide-right 6000ms forwards ease-in-out;
+	}
+}
+
+.slide-right-2 {
+
+	.animate-all & {
+		animation: slide-right 6000ms forwards cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	}
+}
+
+.slide-right-3 {
+
+	.animate-all & {
+		animation: slide-right 6000ms forwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+}

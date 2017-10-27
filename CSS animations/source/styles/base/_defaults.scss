@@ -1,0 +1,27 @@
+//////////////////
+//
+//	File: _defaults.scss
+//	Description: Some default styling
+//
+//////////////////
+
+
+body {
+	width: 100%;
+	padding-top: 8rem;
+}
+
+section {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: calc(100vh - 8rem);
+	padding: 10rem 0;
+	color: $cl-black;
+
+	.button:first-child {
+		margin-top: 10rem;
+	}
+}

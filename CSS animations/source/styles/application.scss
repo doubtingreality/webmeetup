@@ -1,0 +1,40 @@
+//////////////////
+//
+//	Project: Axis
+//	Developer: Gideon Heilbron
+//	Website: http://gideonheilbron.nl
+//
+//	File: application.scss
+//	Description: Import file components and section styling
+//
+//////////////////
+
+
+////////////////////////
+//  Base stylesheets
+////////////////////////
+
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/whitespace';
+@import 'base/colors';
+@import 'base/grid';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/keyframes';
+@import 'base/depth';
+@import 'base/defaults';
+
+
+////////////////////////
+//  Component stylesheets, add a new file for every component you create
+////////////////////////
+
+@import 'components/*';
+
+////////////////////////
+//  Region based stylesheets
+////////////////////////
+
+@import 'regions/*';

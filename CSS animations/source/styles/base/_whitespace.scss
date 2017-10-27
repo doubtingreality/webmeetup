@@ -1,0 +1,73 @@
+//////////////////
+//
+//	File: _whitespace.scss
+//	Description: Whitespace classes loop, prevent over-using this because it creates a lot of bloat
+//
+//////////////////
+
+@for $index from 0 through $whitespace-count {
+
+// Padding
+
+	%p#{$index} {
+		padding: $spacing * $index;
+	}
+
+	%pt#{$index} {
+		padding-top: $spacing * $index;
+	}
+
+	%pr#{$index} {
+		padding-right: $spacing * $index;
+	}
+
+	%pb#{$index} {
+		padding-bottom: $spacing * $index;
+	}
+
+	%pl#{$index} {
+		padding-left: $spacing * $index;
+	}
+
+	%ptb#{$index} {
+		padding-top: $spacing * $index;
+		padding-bottom: $spacing * $index;
+	}
+
+	%plr#{$index} {
+		padding-left: $spacing * $index;
+		padding-right: $spacing * $index;
+	}
+
+// Margin
+
+	%m#{$index} {
+		margin: $spacing * $index;
+	}
+
+	%mt#{$index} {
+		margin-top: $spacing * $index;
+	}
+
+	%mr#{$index} {
+		margin-right: $spacing * $index;
+	}
+
+	%mb#{$index} {
+		margin-bottom: $spacing * $index;
+	}
+
+	%ml#{$index} {
+		margin-left: $spacing * $index;
+	}
+
+	%mtb#{$index} {
+		margin-top: $spacing * $index;
+		margin-bottom: $spacing * $index;
+	}
+
+	%mlr#{$index} {
+		margin-left: $spacing * $index;
+		margin-right: $spacing * $index;
+	}
+}
