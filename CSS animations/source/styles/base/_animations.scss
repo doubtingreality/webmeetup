@@ -1,3 +1,9 @@
+///////////////////////
+////
+////	Fade transitions
+////
+///////////////////////
+
 .fade-opacity {
 	opacity: 0;
 	transition: opacity 300ms;
@@ -44,7 +50,11 @@
 
 
 
-
+///////////////////////
+////
+////	Shake animation
+////
+///////////////////////
 
 @keyframes shake {
 
@@ -80,6 +90,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+///////////////////////
+////
+////	Rotate & scale animation
+////
+///////////////////////
+
 @keyframes rotate-scale {
 	from {
 		transform: rotate(0deg) scale(0);
@@ -100,6 +125,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////
+////
+////	Slide right with cubic-bezier
+////
+///////////////////////
 
 @keyframes slide-right {
 	from {
@@ -135,5 +176,57 @@
 
 	.animate-all & {
 		animation: slide-right 6000ms forwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////
+////
+////	Mask animation
+////	http://caniuse.com/#search=mask
+////
+///////////////////////
+
+@keyframes mask {
+
+	from {
+		visibility: visible;
+		mask-position: 0% 0;
+	}
+
+	to {
+		visibility: hidden;
+		mask-position: 100% 0;
+	}
+}
+
+.mask {
+	@extend %depth-10;
+	position: fixed;
+	visibility: hidden;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition-property: visibility;
+	transition-duration: 700ms;
+	transition-delay: 700ms;
+	background-color: $cl-secondary;
+
+	.show-mask & {
+		mask: url('/images/urban-sprite.png');
+		mask-size: 3000% 100%;
+		animation: mask 1s steps(29) forwards;
 	}
 }

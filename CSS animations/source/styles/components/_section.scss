@@ -1,6 +1,6 @@
 .section--primary {
 	color: $cl-white;
-	background: $cl-quaternary;
+	background: linear-gradient(to bottom, $cl-quaternary 0%, darken($cl-quaternary, 5%) 100%);
 
 	h1 {
 		color: $cl-white;
@@ -9,7 +9,7 @@
 
 .section--secondary {
 	color: $cl-white;
-	background-color: $cl-secondary;
+	background: linear-gradient(to bottom, $cl-secondary 0%, darken($cl-secondary, 5%) 100%);
 
 	h1 {
 		color: $cl-white;
@@ -18,7 +18,7 @@
 
 .section--tertiary {
 	color: $cl-white;
-	background-color: $cl-primary;
+	background: linear-gradient(to bottom, $cl-primary 0%, darken($cl-primary, 5%) 100%);
 
 	a {
 		color: $cl-white;
